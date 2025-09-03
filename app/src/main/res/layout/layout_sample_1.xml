@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Example: A simple layout with a TextView and a Button -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/my_xml_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@color/teal_200" >
 
-    <TextView
-        android:id="@+id/text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rho.Studio®" />
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="" />
 
-    <Button
-        android:id="@+id/action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click Me" />
+        <TextView
+            android:id="@+id/text_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:text="Rho.Studio®" />
+
+<!--            id sirve para ligar a una activity-->
+        <Button
+            android:id="@+id/action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click Me" />
 
 </LinearLayout>
