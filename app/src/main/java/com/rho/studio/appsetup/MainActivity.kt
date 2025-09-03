@@ -1,7 +1,7 @@
 package com.rho.studio.appsetup
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView // Also add this for the TextView you are using
@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
+import com.rho.studio.appsetup.activities.ResultActivity
 import com.rho.studio.appsetup.ui.theme.AppSetUpTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,7 +30,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     // Column to arrange Compose and XML content vertically
                     Column(modifier = Modifier.padding(innerPadding)) {
-                        // 2. The bridge: Adding your XML view
+                        //  The bridge: Adding your XML view
                         AndroidView(
                             factory = { context ->
                                 // This block inflates your traditional XML layout
@@ -45,6 +46,10 @@ class MainActivity : ComponentActivity() {
 
                                 button.setOnClickListener {
                                     textView.text = "Button was clicked from Compose!"
+                                    val intent = Intent(view.context, ResultActivity::class.java)
+                                    intent.putExtra("message", textView.text)
+
+                                    view.context.startActivity(intent)
                                     // You can also call functions on your ViewModel here
                                     // viewModel.updateData()
                                 }
